@@ -1,0 +1,2 @@
+# LCQ
+Leet Code Solutions 
