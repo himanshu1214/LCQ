@@ -1,4 +1,4 @@
 # LCQ
 Leet Code Solutions 
-\B 4 - EASY
-\B 1 - MEDIUM
+## 4 - EASY
+## 1 - MEDIUM
