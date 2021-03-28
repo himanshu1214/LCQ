@@ -17,7 +17,6 @@ def helperquick(arr, start, end):
     arr[pivot], arr[start] = arr[start], arr[pivot]
     orange= start
     green = start+1
-    i = 0
     while green <= end:
         if arr[green] < arr[start]:
             orange +=1
