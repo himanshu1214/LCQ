@@ -1,4 +1,33 @@
-# Complete the function below.
+
+
+##Correct Solutions 
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        nums.sort()
+        for i, num in enumerate(nums):
+            if i > 0 and num == nums[i-1]:
+                continue
+            start = i +1
+            end = len(nums)-1 
+            # print(arr)
+            while start < end:
+
+                # print(f'start : {arr[start]} ; end : {arr[end]};')
+                if nums[i] + nums[start] + nums[end] > 0:
+                    end -=1
+                elif nums[i] + nums[start] + nums[end] < 0:
+                    start += 1
+                else:
+                    print(f'start : {nums[start]} ; end : {nums[end]}; other : {nums[i]}')
+                    triplet = [nums[i], nums[start], nums[end]]
+                    if triplet not in result:
+                        result.append(triplet)
+                    start += 1
+
+        return result
+    
+    # Complete the function below.
 
 def findZeroSum(arr):
     # Write your code here.
