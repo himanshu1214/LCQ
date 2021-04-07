@@ -19,3 +19,14 @@ def subset(arr):
 
 arr=[1, 2, 3]
 print(subset(arr))
+
+#Space Complexity :
+# Input + Aux + Output
+# O(n) + For one call stack O(n) at max + Total (2^n) leaves* n/2 avg size of the leaves
+# O(n) + O(n) + O(2^n*n) ~ O(2^n*n)
+
+#Time Complexity
+# leave worker + Internal Node worker
+# O(2^n *n/2) avg (n/2) amount of time to create copy the aux list to final array  +  O(2^n-1*1) constant time to add an element into list ~ O(2^n)
+# O(2^n *n/2) + O(2^n-1*1) ~ O(2^n*n)
+
