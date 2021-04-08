@@ -18,3 +18,13 @@ class Solution:
 
         helper(nums, 0, [])
         return result
+    
+#Space Complexity:
+# Input + Aux + Outpu
+# O(n) + O(n) + O(n!*n) ~ (Total number of leaves * size of leave)
+
+#Time Complexity
+# Work by end leaves and internal node worker
+# Total leaves* work by each leave worker to copy in external bag + (50% the number of leaves*1)
+# ~O(n!*n)
+
