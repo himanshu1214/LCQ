@@ -1,21 +1,20 @@
-def permutations(arr):
-    if not arr:
-        return []
-    result = []
-    def helper(arr, ind, slate):
-        if ind >= len(slate):
-            result.append(slate[:])
-            return 
-        else:
-            for j in range(ind, len(arr)):
-                arr[j], arr[ind] = arr[ind], arr[j] 
-                slate.append(arr[j])
-                helper(arr, ind, slate)
-                slate.pop()
-                arr[j], arr[ind] = arr[ind], arr[j] 
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        if not nums:
+            return []
+        result = []
+        def helper(nums, ind, slate):
+            if ind >= len(nums):
+                result.append(slate[:])
+                return 
+            else:
+                for j in range(ind, len(nums)):
+                    nums[j], nums[ind] = nums[ind], nums[j] 
+                    slate.append(nums[ind])
+                    helper(nums, ind+1, slate)
+                    slate.pop()
+                    nums[j], nums[ind] = nums[ind], nums[j] 
+                # print(slate)
 
-    helper(arr, 0, [])
-    return result
-
-arr =[1, 2, 3]
-print(permutations(arr))
+        helper(nums, 0, [])
+        return result
