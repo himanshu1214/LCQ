@@ -1,3 +1,18 @@
+Sol 1
+class Solution:
+    def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
+
+        horizontalCuts.sort()
+        verticalCuts.sort()
+
+
+        mx_hor = [j-i for i, j in zip(([0] + horizontalCuts), horizontalCuts + [h])]
+        mx_ver = [j-i for i, j in zip(([0] + verticalCuts), verticalCuts + [w])]
+        
+        return max(mx_hor)*max(mx_ver) % (10**9+7)
+    
+    
+Sol 2:
 class Solution: #Overflowing for 10^9. Check it back
     def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
         # if h == 1000000000 and w == 1000000000:
