@@ -1,0 +1,32 @@
+# Trie DS
+class Trie():
+    def __init__(self):
+        self.head = {}
+
+    def add(self, word):
+        curr = self.head
+        for i in word:
+            if i not in curr:
+                 curr[i] = {}
+            curr = curr[i]
+        curr["*"] = True
+
+        
+    def search(self, word):
+        curr = self.head
+        for i in word:
+            if  i in curr:
+                curr = curr[i]
+            else:
+                return False
+        return "*" in curr
+
+    def startswith(self, word):
+        curr = self.head
+        for i in word:
+            if i not in curr:
+                curr = curr[i]
+            curr = curr[i]
+        
+        return True
+            
