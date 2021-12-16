@@ -10,10 +10,9 @@ def longestCommonSubsequence(text1: str, text2: str) -> int:
             return cache[(text1[ind], text2[ind])]
 
         if text1[ind] == text2[ind]:
-            cache[(text1[ind], text2[ind])] = 1 + helper(text1[ind + 1:], text2[ind + 1:], ind)
-
-        cache[(text1[ind], text2[ind])] = helper(text1[ind + 1:], text2, ind)
-        cache[(text1[ind], text2[ind])] = helper(text1, text2[ind + 1:], ind)
+            cache[(text1[ind+1:], text2[ind])] = 1 + helper(text1[ind + 1:], text2[ind + 1:], ind)
+        else:
+            cache[(text1[ind+1: ], text2[ind])] = max(helper(text1[ind + 1:], text2, ind), helper(text1, text2[ind + 1:], ind))
         return cache
 
     helper(text1, text2, 0)
