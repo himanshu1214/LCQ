@@ -1,7 +1,7 @@
 # LCQ 
-# Total = 150
+# Total = 177
 Leet Code Solutions 
-## 85 - EASY
-## 63 - MEDIUM
-## 2 - Hard
+## 96 - EASY
+## 78 - MEDIUM
+## 3 - Hard
 To do: Dutch National Flag Problem
