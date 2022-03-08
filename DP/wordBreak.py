@@ -5,6 +5,8 @@ class Solution:
         def helper(s,wordDict, memo):
             if len(s) == 0:
                 return True
+            elif s in memo:
+                return memo[s]
             
             for word in wordDict:
                 prefix = s[0: len(word)]
