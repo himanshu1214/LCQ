@@ -10,3 +10,15 @@ class Solution:
                 min_pos = i
         return max_profit
                 
+ 
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        min_val = 10000
+        max_selloff = 0
+        for i in prices:
+            if i < min_val:
+                min_val = i
+            if i - min_val > max_selloff:
+                max_selloff = i - min_val
+                
+        return max_selloff
