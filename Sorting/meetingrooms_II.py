@@ -25,3 +25,41 @@ class Solution:
                 rooms = curr_rooms
             print(f"indx: {i}, max rooms : {rooms}, curr_rooms in use : {curr_rooms}")
         return rooms
+
+    
+    class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        if len(intervals) == 1:
+            return 1
+        from heapq import heappush, heappop
+        start = 0
+        end = len(intervals)
+        
+        tmp = []
+        intervals.sort()
+        count = 0 
+        min_heap = []
+        heapify(min_heap)
+        while start < end:
+            if not min_heap:
+                fir, sec = intervals[start]
+                heappush(min_heap, [sec, fir])
+                
+            else:
+                
+                if min_heap[0][0] <= intervals[start][0]:
+                    # FREE
+                    min_el = heappop(min_heap)
+
+                    min_el[0] = intervals[start][1]
+                    heappush(min_heap, min_el)
+
+                else:
+                    # NOT FREE
+                    fir, sec = intervals[start]
+                    heappush(min_heap, [sec, fir])
+            start += 1
+
+        return len(min_heap)
+                
+            
