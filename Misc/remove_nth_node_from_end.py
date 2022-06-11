@@ -33,5 +33,30 @@ class Solution:
             node = node.next
 
             
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(0)
+        dummy.next = head
+        
+        curr = head
+        ct = 0
+        while curr != None:
+            ct += 1
+            curr = curr.next
+       
+        ct -= n 
+        print(ct)
+        curr = dummy
+        while ct > 0:
+            ct -= 1
+            curr = curr.next
+
+        curr.next = curr.next.next
+        return dummy.next
             
         
