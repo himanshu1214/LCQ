@@ -27,3 +27,27 @@ class Solution:
         return head.next
             
         
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        from heapq import heappush, heappop, heapify
+        min_heap = []
+        heapify(min_heap)
+        for node in lists:
+            while node:
+                heappush(min_heap, node.val)
+                node = node.next
+                
+        head = ListNode(None)
+        curr = head
+        
+        while min_heap:
+            curr.next = ListNode(heappop(min_heap))
+            curr = curr.next
+            
+        return head.next
