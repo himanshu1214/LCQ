@@ -27,7 +27,8 @@ class Solution:
             result.append(temp)
         return result
             
-        
+ # Time Complexity : O(N) we encountered the node only once 
+# Space Complexity : O(N) we capture all the nodes 
         
 # Definition for a binary tree node.
 # class TreeNode:
