@@ -25,3 +25,44 @@ class Solution:
                 r += 1
  
         return res     
+
+
+# 2nd attempt 
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+
+        res = []
+        
+        hash = {}
+        for i in range(len(s)):
+            left = i
+            right = i
+
+            while left >= 0 and right < len(s):
+                if s[left] != s[right]:
+                    break
+                else:
+                    res.append(s[left: right+1])
+                    left -= 1
+                    right += 1
+        
+            left = i
+            right = i+1
+            
+            while left >= 0 and right < len(s):
+                if s[left] != s[right]:
+                    break
+                else:
+                    res.append(s[left:right+1])
+                    left -= 1
+                    right += 1
+            
+        ln_tracker = ""
+        for i in res:
+            ln = len(i)
+            if len(ln_tracker) < ln:
+                ln_tracker = i
+        return ln_tracker
+        
+
+            
