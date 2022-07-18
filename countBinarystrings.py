@@ -16,3 +16,22 @@ class Solution:
             preCnt = currCnt
             i += 1
         return ans
+    
+class Solution:
+    def countBinarySubstrings(self, s: str) -> int:
+            res = [0]
+            start = 1
+            prev = float('-inf')
+            while  start < len(s):
+                if s[start] != s[start-1]:
+                    f_ptr, s_ptr = start-1, start
+                    while f_ptr >=0 and s_ptr <= len(s)-1 and s[f_ptr] != s[s_ptr]:
+                        if f_ptr < prev:
+                            break
+                        res[0] += 1
+                        f_ptr -= 1
+                        s_ptr += 1              
+                    prev = start
+                start += 1
+            return res[0]
+
