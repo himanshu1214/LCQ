@@ -22,3 +22,22 @@ class Solution:
                 max_selloff = i - min_val
                 
         return max_selloff
+    
+    
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        buy = 0
+        sell = 0
+        profit = 0
+        for i in range(len(prices)):
+            if i == 0:
+                buy = prices[i]
+            else:
+                if prices[i] < buy:
+                    buy = prices[i]
+                elif prices[i] > buy:
+                    sell = prices[i]
+                    if profit < sell - buy:
+                        profit = sell - buy
+                    
+        return profit
