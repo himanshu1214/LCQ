@@ -44,3 +44,38 @@ class Solution:
             if not dfs(crs): return False
         
         return True
+   
+# Alternate
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        from collections import defaultdict
+        graph = defaultdict(list)
+        for dep_course, indep_course in prerequisites:
+            graph[indep_course].append(dep_course)
+
+        visited = defaultdict(bool)
+        checked = defaultdict(bool)
+
+        def dfs(node):
+
+            if checked[node]:
+                return True
+
+            if visited[node]:
+                return False
+
+            visited[node] = True
+
+
+            for nei in graph[node]:
+                if not dfs(nei):
+                    return False
+
+            visited[node] = False
+            checked[node] = True
+            return True
+
+        for course in range(numCourses):
+            if not dfs(course):
+                return False
+        return True
