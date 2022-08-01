@@ -26,5 +26,30 @@ class Solution:
 
                     
         return ct
-
+   
+# Alternate
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        
+        
+        visited = set()
+        def dfs(rw, cl):
+            if (rw, cl) in visited:
+                return 
+            
+            visited.add((rw, cl))
+            for ro, co in [(rw+1, cl), (rw-1, cl), (rw, cl+1), (rw, cl-1)]:
+                    if ro in range(rows) and co in range(cols) and grid[ro][co] == "1":
+                        dfs(ro, co)
+            
+            
+            
+        count = 0 
+        for _r in range(rows):
+            for _c in range(cols):
+                if (_r, _c) not in visited and grid[_r][_c] == '1' :
+                    count += 1
+                    dfs(_r, _c)
+        return count
             
