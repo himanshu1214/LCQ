@@ -22,4 +22,26 @@ class Solution:
         dfs(0)
         return len(visited) == n
     
+# Alternate 
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        from collections import defaultdict
+        if len(edges) != n - 1: return False
+        graph = defaultdict(list)
+        for source, dest in edges:
+            graph[source].append(dest)
+            graph[dest].append(source)
+        
+        visited = set()
+        def dfs(node):
+            
+            if node in visited:
+                return 
+            
+            visited.add(node)
+            for nei in graph[node]:
+                dfs(nei)
+                    
+        dfs(0)
+        return len(visited) == n
                 
