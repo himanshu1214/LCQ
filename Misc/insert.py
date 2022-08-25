@@ -34,3 +34,24 @@ class Solution:
             else:
                 res[-1][END] = max(e, res[-1][END])
         return res
+    
+    
+ class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        intervals.append(newInterval)
+        intervals.sort()
+        
+        result = []
+        i = 0
+        while i < len(intervals):
+            if not result:  
+                result.append(intervals[i])
+            elif result[-1][1] >= intervals[i][0]:
+                end = max(result[-1][1], intervals[i][1])
+                result[-1][1] = end
+            else:
+                result.append(intervals[i])
+            i += 1
+            
+        return result
+            
